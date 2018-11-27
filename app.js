@@ -35,6 +35,13 @@ const server = http.createServer((req, res) => {
             const message = parsedBody.split('=')[1];
 
             // fs.writeFileSync('message.txt', message); // Syncronous execution
+
+            // res.writeHead(302, {
+            //     location: '/'
+            // });
+    
+            // return res.end();
+
             fs.writeFile('message.txt', message, (error) => {  // Async execution
 
                 res.writeHead(302, {
@@ -44,12 +51,6 @@ const server = http.createServer((req, res) => {
                 return res.end();
 
             });
-
-            // res.writeHead(302, {
-            //     location: '/'
-            // });
-    
-            // return res.end();
 
         });
 
