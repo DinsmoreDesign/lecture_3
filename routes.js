@@ -2,12 +2,9 @@ const fs = require('fs');
 
 const requestHandler = (req, res) => {
 
-    const url = req.url;
-    const method = req.method;
-
     res.setHeader('Content-Type', 'text/html');
 
-    if (url === '/') {
+    if (req.url === '/') {
 
         res.write(`
             <html>
@@ -27,7 +24,7 @@ const requestHandler = (req, res) => {
 
     }
 
-    if (url === '/message' && method === 'POST') {
+    if (req.url === '/message' && req.method === 'POST') {
 
         const body = [];
 
